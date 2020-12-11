@@ -1,0 +1,17 @@
+{% extends 'learning_logs/base.html' %}
+{% block content %} 
+<br>
+<br>
+<div class="card text-white bg-secondary mb-3">
+<div class="card-body">
+<h5 class="card-title">Register New User</h5>
+<p class="card-text"><i>Hurry Up! Yours tomorrow is here today.</i></p>
+<form method='post' action=" {% url 'users:register' %} ">
+{% csrf_token %}
+{{ form.as_p }}
+<button name='submit' class="btn btn-warning"> Register Now</button>
+<input type="hidden" name="next" value="{% url 'learning_logs:index' %}"/>
+</form>
+</div>
+</div>
+{% endblock content %}
